@@ -1,17 +1,16 @@
-<!DOCTYPE html>
+<x-layout>
 
-    <title>Blog</title>
+<article>
+        <h2>{{ $post->title }}</h2>
 
-    <link rel="stylesheet" href="/app.css">
-    
-    <body>        
-        <article>
-            <h2>
-            <?= $post->title; ?>
-            </h2>
-            <div>
-            <?= $post->body; ?>
-            </div>
-        </article>
+        <p>
+            By <a href="#">{{ $post->user->name }}</a> in <a href="/categories/{{$post->category->slug}}">{{ $post->category->name }}</a>
+        </p>
+        
+        <div>
+                {!! $post->body !!}
+        </div>
+</article>
         <a href="/">Go Back</a>
-    </body>
+
+</x-layout>
